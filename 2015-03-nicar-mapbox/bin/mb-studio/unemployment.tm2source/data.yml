@@ -1,0 +1,39 @@
+_prefs: 
+  disabled: []
+  inspector: false
+  mapid: sfrostenson.87748629
+  rev: s-7ded886e
+  saveCenter: true
+attribution: ''
+center: 
+  - -117.4219
+  - 43.0689
+  - 1
+description: ''
+Layer: 
+  - id: unemployment
+    Datasource: 
+      file: /Users/sfrostenso/Development/talks/bin/shp/cb_2013_us_county_20m/unemployment.geojson
+      layer: OGRGeoJSON
+      type: ogr
+    description: ''
+    fields: 
+      filtered.A: String
+      filtered.C: String
+      filtered.G: String
+      filtered.L: String
+      filtered.N: String
+      filtered.S: String
+      filtered_1: String
+      filtered_2: Number
+      filtered_3: Number
+      unemploy_1: String
+      unemploy_2: String
+      unemploy_3: Number
+      unemployme: String
+    properties: 
+      "buffer-size": 8
+    srs: +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs
+maxzoom: 9
+minzoom: 0
+name: unemployment

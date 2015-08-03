@@ -1,0 +1,35 @@
+_prefs: 
+  baselayer: ''
+  mapid: sfrostenson.5c6a0be9
+  saveCenter: false
+_properties: 
+  bridge: 
+    "group-by": layer
+attribution: "<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>"
+bounds: 
+  - -180
+  - -85
+  - 180
+  - 85
+center: 
+  - 0
+  - 0
+  - 3
+description: ''
+format: "png8:m=h:c=64"
+interactivity_layer: unemployment
+layers: null
+maxzoom: 19
+minzoom: 0
+name: unemployment-styles
+source: "mapbox:///mapbox.mapbox-streets-v5,sfrostenson.87748629"
+styles: 
+  - vars.mss
+  - bg.mss
+  - road.mss
+  - label.mss
+  - poi_classic.mss
+  - unemployment.mss
+template: |-
+  <strong>{{unemploy_1}}, {{unemploy_2}}</strong><br>
+  <strong>Unemployment rate: {{unemploy_3}}</strong>

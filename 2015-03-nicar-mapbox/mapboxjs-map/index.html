@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Unemployment map</title>
+<meta name='viewport' content='width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
+<script type="text/javascript" src="unemployment.geojson"></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
+
+<style>
+  body { 
+  	margin:0; 
+  	padding:0; 
+  }
+  #map { 
+  	position:absolute; 
+  	top:0; 
+  	bottom:0; 
+  	width:100%; 
+  }
+.legend label,
+.legend span {
+  display:block;
+  float:left;
+  height:15px;
+  width:16%;
+  text-align:center;
+  font-size:9px;
+  color:#808080;
+  }
+</style>
+</head>
+<body>
+<!-- Set display to none so we can add it w/ javascript in legendControl -->
+<div id='legend' style='display:none;'>
+  <strong>Unemployment Rates, 2013</strong>
+  <nav class='legend clearfix'>
+    <span style='background:#a3a3a3;'></span>
+    <span style='background:#edf8fb;'></span>
+    <span style='background:#b3cde3;'></span>
+    <span style='background:#8c96c6;'></span>
+    <span style='background:#8856a7;'></span>
+    <span style='background:#8c96c6;'></span>
+    <label>N/A</label>
+    <label>5.0%</label>
+    <label>6.3%</label>
+    <label>7.5%</label>
+    <label>9.2%</label>
+    <label>27.7%</label>
+    <small>Source: Bureau of Labor Statistics</a></small>
+</div>
+<div id='map'></div>
+
+<script>
+// initialize map
+L.mapbox.accessToken = 'pk.eyJ1IjoiZ3JlYXRmYWxscyIsImEiOiJTRkozTnBzIn0.ok9JnUv5zXqrLT-WVPgYiQ';
+var map = L.mapbox.map('map', 'examples.map-i86nkdio')
+  .setView([38.1, -95], 5);
+
+// add legend
+map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+
+// add geojson data as layer, add styles, add interactivity.
+var unemploymentLayer = L.geoJson(unemployData, { style: style, onEachFeature: onEachFeature }).addTo(map);
+
+// set popup variable & events
+var popup = L.popup();
+
+unemploymentLayer.on('mouseover', function(e) {
+	e.layer.openPopup();
+});
+
+unemploymentLayer.on('mouseout', function(e) {
+    e.layer.closePopup();
+});
+
+// used in function style
+function getColor(d) {
+    if (d !== -99) {
+    return d < 5.0 ? '#edf8fb':
+           d < 6.3 ? '#b3cde3' :
+           d < 7.5 ? '#8c96c6' :
+           d < 9.2 ? '#8856a7' :
+                     '#8c96c6';
+    } else {
+      return '#a3a3a3';
+    }
+}
+
+// set vector styles + fillColor
+function style(feature) {
+      return {
+          fillColor: getColor(feature.properties.unemploy_3),
+          weight: 0.8,
+          opacity: 1,
+          color: '#a3a3a3',
+          fillOpacity: 0.6
+      };
+}
+
+// function to add interactivty
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight
+    });
+}
+
+// highlight selected county + bind popup data
+function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        weight: 2,
+        opacity: 1,
+        color: '#fff'
+    }).bindPopup('<h2>' + layer.feature.properties.unemploy_1 + ', ' + layer.feature.properties.unemploy_2 + '</h2>' + '<p>' + 'Unemployment Rate: ' + layer.feature.properties.unemploy_3 + '</p>'
+    );
+}
+
+// remove highlight + popup data
+function resetHighlight(e) {
+    unemploymentLayer.resetStyle(e.target);
+}
+
+</script>
+</body>
+</html>

@@ -291,6 +291,14 @@ body {
   -webkit-perspective-origin: 50% 40%;
           perspective-origin: 50% 40%; }
 
+.reveal .slides p {
+  text-align: left;
+}
+
+.reveal .slides small {
+  text-align: left;
+}
+
 .reveal .slides > section {
   -ms-perspective: 600px; }
 

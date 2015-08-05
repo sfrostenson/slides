@@ -6,8 +6,8 @@
 
 		<title>TECHLADY-HACKATHON-2015</title>
 		<link rel="icon" type="image/png" href="/favicon.png">
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="A presentation on how to build a personal portfolio">
+		<meta name="author" content="Sarah E Frostenson">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -43,194 +43,156 @@
 				<section>
 					<h1>Let's Build a Portfolio!</h1>
 					<h6>Shannon Turner &amp; Sarah Frostenson</h6>
-					<small>Twitter: <a href="https://twitter.com/svt827" target="_blank">@svt827</a>&nbsp;<a href="https://twitter.com/sfrostenson" target="_blank">@sfrostenson</a><br>Github: <a href="https://github.com/shannonturner" target="_blank">@shannonturner&nbsp;<a href="https://github.com/sfrostenson" target="_blank">@sfrostenson</a><br>Slides: <a href="http://frostenson.com/talks/portfolio-workshop/" target="_blank">frostenson.com/talks/portfolio-workshop</a></small>
+					<small>Twitter: <a href="https://twitter.com/svt827" target="_blank">@svt827</a>&nbsp;<a href="https://twitter.com/sfrostenson" target="_blank">@sfrostenson</a><br>Github: <a href="https://github.com/shannonturner" target="_blank">@shannonturner&nbsp;<a href="https://github.com/sfrostenson" target="_blank">@sfrostenson</a><br>Slides: <a href="http://frostenson.com/talks/" target="_blank">frostenson.com/talks/</a></small>
 					<aside class="notes">
-						If they want to follow along w/ the slides, navigate to frostenson.com/talks.
-						<br><br>
-						How many people have used Mapbox before?
+						To copy and paste code snippests, all participants should follow along w/ the slides by navigating to frostenson.com/talks/ and clicking on the Let's Build a Porfolio slidedeck. To launch speaker notes simply type S on your keyboard.
                     </aside>
 				</section>
 
 				<section>
-					<h2>What is Mapbox?</h2>
-					<p>A geographical baselayer...</p>
-					<img src="img/baselayers.jpeg">
+					<h2>What we're going to build</h2>
+						<p>A one page, responsively designed website that showcases your work.</p>
 					<aside class="notes">
-						Three basic baselayers at the core of Mapbox are:
-						<br> 1. Streets/Atlas View
-						<br> 2. Terrain/Topographical
-						<br> 3. Satellite
+						Portfolios are a great way to visually show employers what you've done, especially if you're applying for a technical position that requires coding skills.
 					</aside>
 				</section>
 
 				<section>
-					<img src="img/baselayers-possibilities.jpeg">
-					<aside class="notes">
-						When you start a new project through your mapbox account, these are the possible baselayers already available to you.
-						<br>Of course, w/ Mapbox Studio, the design possibilities are endless.
-					</aside>
+					<h2>What we're going to learn</h2>
+					<ul>
+						<li>HTML/CSS Basics</li>
+						<li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+						<li>a little <a href="http://jekyllrb.com/">Jekyll</a> and <a href="https://pages.github.com/">Github Pages</a></li>
+					</ul>
 				</section>
 
 				<section>
-					<h2> What is Mapbox?</h2>
-					<p> A geographical baselayer + DATA OVERLAY</p>
-					<img src="img/data.jpeg">
-					<aside class="notes">
-						But again, What is Mapbox? It's a geographical baselayer + data. And what we're going to focus on today is the second half of the equation--data. B/c visualizing our data helps us not only tell our stories more effectively to our readers, but it can also show us insights that can inform our own reporting.<br>
-						<br>A screenshot of my very first Mapbox assignment--which was to visualize 40 years of Iowa population data. This is data for 2000-2010.
-					</aside>
-				</section>
-
-				<section>
-					<h2>Objectives</h2>
+					<h2>One: Structuring Our Workspace</h2>
 					<ol>
-						<li>How to build a map in Mapbox Studio or Tile Mill.</li>
-						<li>How to build the same map using Mapbox.js.</li>
+						<li>Create a new folder/directory on your desktop called <code class="emphasis">site</code>.</li>
+						<li>Within your site directory create an <code class="emphasis">index.html</code> file.</li>
+						<li>Create one additional directory within your site directory called <code class="emphasis">styles</code>.</li>
+						<li>Within your styles directory create a <code class="emphasis">main.css</code> file</li>
 					</ol>
 					<aside class="notes">
-						So today, we're going to learn 2 things. First, how to build a map using TileMill or Mapbox Studio.
-						<br> And second, how to build that exact same map using the Mapbox API.
-						<br> Then we'll talk about pros/cons to each approach &amp; show you a few projects that have used Mapbox to get you inspired!
+						Every website you build needs a root or project directory, which in this case is site. Our index.html file will form the backbone of our website and our styles directory will host our code that customizes our website's look and feel.
+						<br>
+						The four steps outlined above we're going to do in our terminal. So go ahead and search for that in Finder or My Computer and launch the terminal app.
 					</aside>
 				</section>
 
 				<section>
-					<h2>Step One: Does Your Data Have a Geographic Field?</h2>
-					<br>
-					<p>You need some kind of geographic field in your data to join to a shapefile or generate geojson / topojson file, etc.</p>
-					<ul>
-						<li>FIPS code</li>
-						<li>Latitude / Longitude coordinates</li>
-						<li>Or geocode your data. Checkout <a href="http://geomancer.io/">geomancer</a> from the AP.</li>
-					</ul>
+					<h2>Two: Structure it in Your Terminal</h2>
+				<pre><code data-trim contenteditable>
+sfrostenso@GCI-SFROSTEN2-M:~|⇒  cd Desktop 
+sfrostenso@GCI-SFROSTEN2-M:~/Desktop|
+⇒  mkdir site && cd $_
+sfrostenso@GCI-SFROSTEN2-M:~/Desktop/site|
+⇒  touch index.html
+sfrostenso@GCI-SFROSTEN2-M:~/Desktop/site|
+⇒  mkdir styles && cd $_
+sfrostenso@GCI-SFROSTEN2-M:~/Desktop/site/styles|
+⇒  touch main.css
+sfrostenso@GCI-SFROSTEN2-M:~/Desktop/site/styles|
+⇒  cd ..
+sfrostenso@GCI-SFROSTEN2-M:~/Desktop/site|
+⇒ 
+</code></pre>
 					<aside class="notes">
-						So first things, first when identifying a data set to map, make sure there's a geographic or spatial component to it. This could be a FIPS code, if dealing w/ states or counties, lat/lon for specific points on a map, or even trying tools like AP's geomancer, to add geocoded data to your data, if you only have a city name or street address, etc.
+						First we want to "cd" or change directory into our Desktop folder so we are all building from the same place on our computers. Once we're at the desktop, we'll make our directory site and change directly into it. From there we'll use touch to create a single file. And we'll use mkdir to make one more directory, called styles. In the styles directory, we'll want to create a main.css file. Once you've done this cd back to the root directory--site.
 					</aside>
 				</section>
 
 				<section>
-					<h2>Data Formats Recognized by Mapbox Studio &amp; Tile Mill</h2>
-					<ul>
-						<li>csv (must contain colums w/ lat/lon coordinates)</li>
-						<li>shapefile</li>
-						<li>GeoJSON</li>
-						<li>KML</li>
-						<li>GeoTIFF</li>
-						<li>SQLite or PostGIS</li>
-					</ul>
+					<h2>Three: HTML Setup</h2>
+					<img src="img/html-setup.jpg">
 					<aside class="notes">
-						Mapbox Studio and TileMill will recognize csv data, shapefiles, GeoJSON,
-						KML (think Google Earth/Maps products), GeoTIFF for raster/remote sensing imagery and lastly, data from spatial databases like SQLite or PostGIS. If you're going to build your map in javascript, you'll want your data as GeoJson.
-					</aside>
-				</section>
-
-				<section>
-					<h2>Our Data Story</h2>
-					<ul>
-						<li>Unemployment rates by county for 2013</li>
-						<li>Source: Bureau Labor of Statistics</li>
-						<li>Found the raw data from 2000-2013 in an Excel file at <a href="http://www.ers.usda.gov/data-products/county-level-data-sets/download-data.aspx">the USDA</a>.</li>
-						<li>Yes, getting the raw data to <a href="https://github.com/sfrostenson/talks/blob/master/bin/shp/cb_2013_us_county_20m/unemployment.json">unemployment.geojson</a> takes a few steps.</li>
-						<li>But don't worry, I've outlined exactly how to do it w/ minimal pain involved <a href="https://github.com/sfrostenson/talks/tree/master/bin">here</a>.</li>
-					</ul>
-					<aside class="notes">
-						Ok, so what data set will be using today? Unemployment rates by county for 2013, which interestingly enough I found through USDA and not BLS. Go figure.<br>
-						Everyone's machines should have unemployment.json preloaded. And while we don't have time today to go over how I got that Excel file into a geojson file, I've provided step by step instructions for you so that you can replicate my unemployment.json file in addition to building some python and terminal skills along the way.
+						Because this slide presentation is one big html document, I had some issues including the doctype tag, html and head tags, which is why this portion is a screenshot and not an embed. They'll need to actually type this into their html file.
+						<br>
+						Now let's start building out our index.html file. All html files start with "!DOCTYPE HTML" followed by language type in the "html" tag. Next is the "head" tag, which includes meta data about our site, the title of our site and links to css files. The meta data you see here is boiler plate meta data, providing data to mobile devices on how they should treat your site and some character encoding. More important, are our link tags, which include our styles--bootstrap and our personal main.css. You always want to include your custom css last. Can anyone guess why? (A: The last css file declared overwrites previous ones listed)
+						<br>
+						The HTML 5 shim stuff isn't important to understand fully now--but know it helps solve for compatability issues in older browsers like IE9.
 					</aside>	
 				</section>
-
 				<section>
-					<h2>Let's Get Mapping!</h2>
+					<h2>Four: Add some Body HTML</h2>
+<pre><code data-trim contenteditable>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="#">YOUR NAME</a>
+	        </div>
+	        <div id="navbar" class="collapse navbar-collapse">
+	          <ul class="nav navbar-nav">
+	            <li class="active"><a href="#">Portfolio</a></li>
+	            <li><a href="#about">Resume</a></li>
+	            <li><a href="#contact">Contact</a></li>
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      </div>
+	    </nav>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</pre></code>
+				<aside class="notes">
+						Now let's get something on the page. Go ahead and copy and paste the above code in between your body tags. We'll talk about what we're doing in just a second. The next slide shows a screen shot of what the body in your index.html file should look like.
+				</aside>
 				</section>
 
 				<section>
-					<h2>But First, Beware!</h2>
-					<p>While TileMill still works now, know that Mapbox aims to fully <a href="https://www.mapbox.com/mapbox-studio/common-questions/#how-is-mapbox-studio-related-to-tilemill">replace</a> and improve upon TileMill with Mapbox Studio.</p>
-					<aside class="notes">
-						You should know that Mapbox is looking to replace and eventually stop supporting TileMill. I'll still briefly show you how you would make the map in TileMill versus, Mapbox Studio, but be warned! 
-					</aside>
+					<img src="img/html-menu-div.jpg">
 				</section>				
 
 				<section>
-					<h2>Method I: Mapping in Mapbox Studio</h2>
-					<p>Step One: Import our GeoJSON and Upload Data</p>
-					<br>
-					<ol>
-					<li>Create a new project and select <strong>Blank source</strong>.</li>
-					<li>Click <strong>New layer</strong> and import our data.</li>
-					<li>Change your zoom level to see our data.</li>
-					<li>Click anywhere on the map.</li>
-					<li>Rename layer name <strong>unemployment</strong>. Save our project.</li>
-					<li>Upload our data to Mapbox.com.</li>
-					<li>Copy our data's <strong>Map Id</strong>.</li>
-					</ol>
-					<aside class="notes">
-						Open Mapbox Studio and click on Projects in the lower left. Click New project button. Create a new source for our data by selecting Blank Source.
-						<br>Is your screen black? Can't see your data? Good. This often happens. 
-						<br>If you change your zoom level to z2 and change drag your map, you'll see a map of the US.
-						<br>And when you click on the map, you'll see a hover box containing all the data points for a given county. If you select the Fields tab (next to configure), you'll see what type of fields are in our data (string, integer, etc.). MAKE SURE EVERYONE'S DATA LOADS AS UNEMPLOYMENT.
-						<br>Mapbox Studio source projects are saved as a directory of files with a suffix of .tm2source automatically appended to the name.
-						<br>Upload your data directly to Mapbox.com by selecting Settings and the Upload to Mapbox button. Be sure to give your upload the name you used to save your project. Check your online Mapbox account. Do you see your upload under the Data tab? We upload our raw data to Mapbox.com so we can use the data for styling Mapbox Studio projects.
-						<br>You can copy our data's map id in two ways. You can do it through Mapbox.com, where you'll see the id and a clipboard icon under the name of the project (select the icon to copy the id). Or you can copy the map id in Mapbox Studio in the Settings panel. If you accidently click the id in studio, no worries, it takes you to your online Mapbox account where you can copy it there.
-					</aside>	
-				</section>
-
-				<section>
-					<h2>Method I: Mapping in Mapbox Studio</h2>
-					<p>Step Two: Style our data</p>
-					<br>
-					<ol>
-					<li>Select <strong>Projects</strong> and <strong>Styles</strong> (instead of Sources).</li>
-					<li>Click on <strong>Layers</strong> and <strong>Change source</strong> to add our data's Map Id.</li>
-					<img src="img/mbstudio-sources.jpeg">
-					<li>Create a style sheet for our data.</li>
-					</ol>
-					<aside class="notes">
-						Back in Mapbox Studio click on Projects in the lower left. We see our data project saved, cool. Now select Styles. We don't have any Styles! So let's select the New Project tab and select one of Mapbox's prepackaged styles. I chose Streets Classic. In addition to loading the base layer, you'll also see the CSS written in CartoCSS that styles the baselayer. You can customize these styles, however you'd like, but we won't focus on that today.
-						<br>In the dialog box, you'll see the map id for your style. Paste your data's map id here. Commas between map ids, but no spaces. As you might have guessed, you could add multiple data sources this way. 
-						<br>Click on the + button on the top right of the style editor to add a style sheet for our data. Name your tab the same as your layer name, which in this case is unemployment.
-					</aside>	
-				</section>
-
-				<section>
-					<h2>Method I: Mapping in Mapbox Studio</h2>
-					<p>Our CartoCSS styles</p>
+					<h2>Five: Launch a webserver</h2>
+					<p>Go back to your terminal. From the site directory, launch a simple webserver by typing <code class="emphasis">python -m SimpleHTTPServer</code></p>
 					<pre><code data-trim contenteditable>
-#unemployment {
-    line-color: #a3a3a3;
-  	line-width: 0.8;
-  	polygon-opacity: 0.6;
-  
-  [unemploy_3 = -99] { polygon-fill: #a3a3a3; }
-  [unemploy_3 >= 0.9][unemploy_3 <= 5.0] { polygon-fill: #edf8fb; }
-  [unemploy_3 >= 5.1][unemploy_3 <= 6.3] { polygon-fill: #b3cde3; }
-  [unemploy_3 >= 6.4][unemploy_3 <= 7.5] { polygon-fill: #8c96c6; }
-  [unemploy_3 >= 7.6][unemploy_3 <= 9.2] { polygon-fill: #8856a7; }
-  [unemploy_3 > 9.2] { polygon-fill: #810f7c; }
-}
-					</code></pre>
+sfrostenso@GCI-SFROSTEN2-M:~/Desktop/site|
+⇒  python -m SimpleHTTPServer
+Serving HTTP on 0.0.0.0 port 8000 ...
+</pre></code>
+					<p>To see your website in action type the this in the address bar: <code class="emphasis">http://localhost:8000/</code></p>
 					<aside class="notes">
-						Copy and paste the code into your unemployment stylesheet. Save your project as unemployment-styles. Do you see any changes?
+						This should work for most of you. If it doesn't, it means Python isn't installed on your machine. That's ok. Just install it later. In the meantime, if you double click on your index.html file, it'll launch it in the web browser and you'll still be able to interact with the console and webpage.
+						<br>
+						Ok, at this point--you should see in your terminal that it says serving HTTP on some port. This is where our website is being hosted. If for some reason your port is different than 8000, that's fine just use whatever number your terminal returns. Let's check it out in the browser. What do you see? Do you know how to open your developer tools to inspect the page? Let's do that next and talk about what's happening.
+					</aside>	
 				</section>
 
 				<section>
-					<h2>Method I: Mapping in Mapbox Studio</h2>
-					<p>Adding Interactivity</p>
+					<h2>Six: Inspect Your Page</h2>
+					<p>There are two ways to launch your inspector tools (should work for Safari, Chrome, Firefox &amp; IE)</p>
 					<ol>
-						<li>Close Mapbox Studio. Navigate to the folder where you saved your styles.</li>
-						<li>Open <strong>project.yml</strong>.
-						<li>Change <strong>interactivity_layer: ''</strong> to <strong>interactivity_layer: unemployment</strong>
-						<li> Change <strong>template: ''</strong> to
-						<pre><code data-trim contenteditable>
-template: |-
-  <strong>{{unemploy_1}}, {{unemploy_2}}</strong><br>
-  <strong>Unemployment rate: {{unemploy_3}}</strong>
-						</code></pre>
+					<li>Right click anywhere on the page and select <code class="emphasis">Inspect Element</code></li>
+					<li>Use the keyboard shortcut <code class="emphasis">Cmd + Option + I&nbsp;</code> on a Mac or <code class="emphasis">Ctrl + Shift + I</code>&nbsp;on a PC.</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>The Inspector</h2>
+					<img src="img/console.jpg" />
+					<aside class="notes">
+						This is roughly what your Inspector should look like--it varies from browser to browser. But the big thing, I want you to do now is to go through the DOM (short for Document Object Model--which refers to the html backbone of your site). Do you see our html code reflected in the Inspector? What happens when you select an element in the Inspector? Does it highlight the corresponding element on the page?
+						<br>
+						Try resizing your browser. What happens to our menu buttons? What happens when you click on the collapsed menu?
+					</aside>
+				</section>
+
+				<section>
+					<h2>Seven: Bootstrap</h2>
+					<p>Bootstrap is a popular HTML, CSS and JS framework for developing responsive, mobile first projects.</p>
+					<p>Bootstrap
 						<aside class="notes">
-							What is a map without interactivity? Let's close Mapbox Studio and navigate to your styles folder. It has a .tm2 extension. Unfortunately we have to quit and restart Mapbox Studio, as Studio does not yet detect changes made from other text editors dynamically.
-							<br>This is a yaml file or xml file w/ our project's properties.
-							<br>interactivity_layer: unemployment let's us access all the data properties of this layer so we can make pick and choose what we want in our hover data.
-							<br> In template we are creating hover data using our layer's data field names, in this case I've selected county name, state + unemployment rate. The curly brackets indicate a mustache template, you'll see this structure in lots of different languages/libraries.
+
 						</aside>
 				</section>
 

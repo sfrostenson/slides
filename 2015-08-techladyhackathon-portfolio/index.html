@@ -131,7 +131,7 @@ sfrostenso@GCI-SFROSTEN2-M:~/Desktop/site|
 	        <div id="navbar" class="collapse navbar-collapse">
 	          <ul class="nav navbar-nav">
 	            <li class="active"><a href="#">Portfolio</a></li>
-	            <li><a href="#about">Resume</a></li>
+	            <li><a href="#resume">Resume</a></li>
 	            <li><a href="#contact">Contact</a></li>
 	          </ul>
 	        </div><!--/.nav-collapse -->
@@ -189,56 +189,83 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 
 				<section>
 					<h2>Seven: Bootstrap</h2>
+					<img src="img/bootstrap-ex.jpg" />
 					<p>Bootstrap is a popular HTML, CSS and JS framework for developing responsive, mobile first projects.</p>
-					<p>Bootstrap
-						<aside class="notes">
-
-						</aside>
-				</section>
-
-				<section>
-					<h2>Method I: Mapping in Mapbox Studio</h2>
-					<p>Upload Project</p>
-					<ol>
-						<li>Use <strong>unemployment-styles</strong> as name and upload to Mapbox.</li>
-						<li>Go to your Mapbox.com account and check for project under Styles.</li>
-						<aside class="notes">
-							By navigating to Settings.<br>
-							Is it there? Good deal. Let's get our map on a html page!
-						</aside>
-				</section>
-
-				<section>
-					<h2>Method I: Mapping in Mapbox Studio</h2>
-					<p>Building A Simple HTML page</p>
-					<p>Go to <a href="https://github.com/sfrostenson/talks/blob/2015-03-nicar-mapbox/mbstudio-map/index.html">https://github.com/sfrostenson/talks/blob/2015-03-nicar-mapbox/mbstudio-map/index.html</a></p>
+					<p>Here are some more ready-made <a href="http://getbootstrap.com/getting-started/#examples">Bootstrap Templates</a>.
 					<aside class="notes">
-						Copy and paste code into a text editor as index.hml or click raw and save as index.html. Save this file in the same folder as your unemployment.geojson. 
-						<br>So what is this html file doing? In the beginning, we declare it's a html file and call both the Mapbox.js API and Mapbox styles. Then we give some simple css position styles to our map, which has an id of #map.
-						<br>Where the magic happens is in our javascript, where we draw our map in our variable map, var map. The only thing we need to do is add our API Token and the map id of our styled map. Make sure to put both inside the quotes.
-						<br>Ok, great. Once you've done that, let's save our file as index.html and drag that file into the browser.
+					All of the styles and functionality of our menu is thanks to the Bootstrap framework. You'll see that we used the Starter Template for our website nav.
 					</aside>
 				</section>
 
-				<section data-background="img/mbstudio-map.jpeg">
-					<h2><span style="color: #000000">Got Map?</span></h2>
+				<section>
+					<h2>Bootstrap's Grid</h2>
+					<ul>
+						<li> Bootstrap works as a <a href="http://getbootstrap.com/examples/grid/">12 column grid.</a></li>
+						<li> This means grid columns classes must add up to 12 for a single horizontal block or div. </li>
+						<li>Bootstrap has four types of classes: xs (phones), sm (tablets), md (desktops), and lg (larger desktops)</li>
 						<aside class="notes">
-						Hover data works. Can zoom into an area, out of an area, etc. You've just built your first map!
+						Based on the code in our index.html file, it's not apparent, b/c we're using a special Bootstrap class called "navbar"--but Bootstrap works on a 12 column grid system.
+						<br>
+						Check out the Bootstrap link in your browser and play with resizing the page to see how Bootstrap elements size responsively based on column size classes.
+						</aside>
+				</section>
+
+				<section>
+					<h2>Eight: Use Bootstrap's Grid</h2>
+					<pre><code data-trim contenteditable>
+<div class="projects">
+	<div class="col-md-4 project-item">
+		<h3>Project One Headline</h3>
+            <hr />
+            <span>A detailed description on the project or nature of your work, role and skills learned.</span>
+	</div>
+	<div class="col-md-4 project-item">
+    	<h3>Project Two Headline</h3>
+                <hr />
+                <span>A detailed description on the project or nature of your work, role and skills learned.</span>
+    </div>
+	<div class="col-md-4 project-item">
+		<h3>Project Three Headline</h3>
+            <hr />
+            <span>A detailed description on the project or nature of your work, role and skills learned.</span>
+	</div>
+</div>
+</pre></code>
+					<aside class="notes">
+						Ok, let's use Bootstrap to build one row of our portfolio site. We'll want to put this code under our closing nav tag in our index.html file. What does the col-md-4 class mean? What happens when you resize the page? Can you spot any errors? What do you think is happening?
+					</aside>
+				</section>
+
+				<section>
+					<h2>Nine: A little CSS</h2>
+					<pre><code data-trim contenteditable>
+.row {
+	margin-right: 0;
+	margin-left: 0;
+}
+.projects {
+    top: 50px;
+    position: relative;
+}
+</pre></code>
+						<aside class="notes">
+						The reason we can't see all of our content is because of div positioning that can be fixed with a little of our own custom CSS.
+						<br>
+						What we're doing here is overwriting some undesirable Bootstrap row CSS w/ our own CSS, removing the negative margins and then telling our entire projects div to move down 50px from the top so the navbar is no longer hiding it. So if you refresh your page, you'll see it looks a lot better huh?
 					</aside>
 					</section>
-
-				<!-- QUICK TILEMILL RUN DOWN -->
 				<section>
-					<h2>Tile Mill</h2>
-					<img src="img/tilemill-styles.jpeg">
+					<h2>Ten: Jekyll</h2>
+					<img src="img/jekyll-install.jpg" />
 						<aside class="notes">
-						Luckily, for you TileMill is very similiar to Mapbox Studio. It's roughly the same process of creating a new project. We adding our data layer, unemployment.geojson and CartoCSS styles, except we don't have the intermediary steps of having to upload to Mapbox. You could even argue the process is cleaner at this stage. But remember, we don't know how much longer TileMill will be supported.
+						From here, you could keep adding additional rows in the exact same way as we did the first row, but I'd like to briefly introduce you to Jekyll, as it's a powerful tool for templating website and reducing the amount of code you need to write.
+						<br>
+						Ok, so let's follow the Jekyll installation guide in our terminal. Make sure you navigate to the root directory of your terminal. CD until you don't see any directories listed or close and reopen your terminal.
 						</aside>
 					</section>
 
 				<section>
-					<h2>Tile Mill Hover Data</h2>
-					<img src="img/tilemill-hover.jpeg">
+					<img src="img/jekyll-default.jpg">
 						<aside class="notes">
 						By clicking the pointed finger icon in the lower left, I can activate my unemployment layer and add my interactivity like we did in Mapbox Studio. I can even create an html legend.
 						</aside>

@@ -295,95 +295,96 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 				</section>
 
 				<section>
-					<h2>Method II: Mapping using Mapbox.js</h2>
-					<p>Line 65 in index.html:</p>
-					<pre><code data-trim contenteditable>
-						var unemploymentLayer = L.geoJson(unemployData, { style: style, onEachFeature: onEachFeature }).addTo(map);
-					</pre></code>
-					<p>Variable in unemployment.geojson:</p>
-					<pre><code data-trim contenteditable>
-					var unemployData = {
-    "features": [
-        {
-            "geometry": {
-                "coordinates": [
-                    [
-                        [
-                            -121.447540446521,
-                            41.997168804479195
-                            etc........
-                        </pre></code>
+					<h2>13: Customizing the Config</h2>
+					<img src="img/jekyll-config.jpg" />
 						<aside class="notes">
-						First of all, top of the script has all the same requirements as our other index.html file. Then we've got some map and legend styles and some html code that creates a Mapbox legend on our page in addition to the div for our map.
-						<br>Similiarly, we initiate the map w/ our API token and Map id. Except this map id is just a baselayer map w/ no data preloaded.
-						<br>Next we add the legend.
-						<br>And this is the big part, line 65 is where we load our unemployment.geojson.
-						<br>L.geojson is how the Mapbox API loads geojson data. And if we open our unemployment.geojson, we'll see that unemployData is the set variable for our geojson.
+						The config.yml file is stored in the root directory of your my-awesome-site project and looks like this. What happens when you put in your own personal information and refresh the page?
+						<br>
+						Yaml is similiar to XML and is a way to store structured data. In this case, our config file holds impt metadata about the site that we also are rendering on our page through the "site variable". We'll see this variable when we explore some of our includes in the next slide.
 						</aside>
 
 				</section>
 
 				<section>
-					<h2>Method II: Mapping using Mapbox.js</h2>
-					<p>Interactivity and Styles</p>
-					<pre><code data-trim contenteditable>
-var popup = L.popup();
-
-unemploymentLayer.on('mouseover', function(e) {
-	e.layer.openPopup();
-});
-
-unemploymentLayer.on('mouseout', function(e) {
-    e.layer.closePopup();
-});
-					</pre></code>
+					<h2>14: The Power of Includes</h2>
+					<img src="img/jekyll-includes.jpg" />
+					<ul>
+						<li>Screenshot of our Footer.html _include.</li>
+						<li>{{ }} indicates templating language.</li>
+						<li>What info generates <code class="emphasis">{{ site.title }}</code> ?</li>
+					</ul>
 					<aside class="notes">
-					The rest of our index.html is focused on assigning interactivity and styles to our map that are then referenced in the style:style and onEachFeature:onEachFeature of line 65.
-					<br>For instance, here we declare our popup variable and say when our mouse moves to a county, open our popup. When our mouse moves from our event (aka county) close popup. Instead of mouseover you could say click if you wanted click data instead of hover data.
-					<br>The other functions, assign styles.
-					<br>Drag index.html to your browser. What do you see?
-						</aside>
-
+					Now, let's take a look at our includes folder. Notice how you see three html files: footer, header &amp; head? Take a look at those files what do you notice? There's some indecipherable svg code, but that's just for your twitter and github icons. Do you notice the curly brackets with the site variable? Do you understand the relationship between site &amp; our config.yml file?
+					<br>
+					But how are our include files being rendered? That brings us to our layouts.
+					</aside>
 				</section>
 
-				<section data-background="img/mapboxjs-map.jpeg">
-				<h2><span style="color: #000000">Got Map?</span></h2>
+				<section>
+				<h2>15: Layouts are the glue</h2>
+				<img src="img/jekyll-layouts.jpg" />
 					<aside class="notes">
-					Hover data works. Can zoom into an area, out of an area, etc. You've just built your first map!
+					This is a screen shot of our default.html. Do you recognize the templating language? Do you see how our includes are being called on the page?
 					</aside>
 				</section>
 				
-				<!-- DISCUSSION OF FIRST METHOD PRO/CONS VS. SECOND METHOD -->
 				<section>
-					<h2>PRO/CONS of Methods?</h2>
-					<h2>Mapbox Limitations?</h2>
+					<h2>16: A Portfolio Include?</h2>
+					<p>In your <code class="emphasis">_includes</code> directory create a new file called <code class="emphasis">projects.html</code> and from the <code class="emphasis">index.html</code> file in your <code class="emphasis">site</code> directory, copy &amp; paste your row projects class.
+<pre><code data-trim contenteditable>
+<div class="row projects">
+	<div class="col-md-4 project-item">
+		<h3>Project One Headline</h3>
+            <hr />
+            <span>A detailed description on the project or nature of your work, role and skills learned.</span>
+	</div>
+	<div class="col-md-4 project-item">
+    	<h3>Project Two Headline</h3>
+                <hr />
+                <span>A detailed description on the project or nature of your work, role and skills learned.</span>
+    </div>
+	<div class="col-md-4 project-item">
+		<h3>Project Three Headline</h3>
+            <hr />
+            <span>A detailed description on the project or nature of your work, role and skills learned.</span>
+	</div>
+</div>
+</pre></code>
 					<aside class="notes">
-					This is when I ask you for feedback. Which method did you like better?
+					Ok, so now that we know about the power of Jekyll &amp; Bootstrap, do you think we could treat our portfolio that we create in our site directory as an include in our jekyll project?
 					</aside>
 				</section>
 
 				<section>
-					<h2>Effective Uses of Mapbox</h2>
-					<ul>
-					<li>Washington Post <a href="http://www.washingtonpost.com/wp-srv/special/local/dc-school-zones/" target="_blank">DC School Zones</a></li>
-					<li>LA Times <a href="http://graphics.latimes.com/los-angeles-pipe-leaks/" target="_blank">Water Main Leaks</a></li>
-					<li>USA Today <a href="http://www.usatoday.com/story/weather/2013/10/03/tropical-storm-tracker/2917789/" target="_blank">Hurricane Tracker</a></li>
+					<h2>Change our Default Layout</h2>
+					<p> In <code class="emphasis">_layouts</code> in your <code class="emphasis">default.html</code> file, replace <code class="emphasis">{{ content }}</code> with <code class="emphasis">{% include projects.html %}</code>
+					<img src="img/jekyll-projects-include.jpg" />
 					<aside class="notes">
-					This is when I ask you for feedback. Which method did you like better?
+						Refresh your awesome site page. What do you see?
 					</aside>
 				</section>
 
-
-				<!--LAST SLIDE -->
 				<section>
-					<h2>Resources</h2>
+					<h2>A Portfolio!</h2>
+					<img src="img/jekyll-projects-render.jpg" />
+					<aside class="notes">
+						Now the astute out there might notice the style of our portfolio is slightly different than in our site project. This is because Jekyll relies on Foundation instead of Bootstrap. But we can link to Bootstrap in our head.html file in our includes folder.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Add Bootstrap</h2>
+					<p>From the <code class="emphasis">index.html</code> file in your <code class="emphasis">site</code> directory, copy &amp; paste your Boostrap stylesheet link.</p>
+					<img src="img/jekyll-head-bootstrap.jpg" />
+					<aside class="notes">
+						What happens now when you refresh the page? Is it identical more to the projects on your site portfolio page? Notice, we had to refer to Bootstrap after our main.css in order to overwrite default Jekyll styles.
+				</section>
+				<section>
+					<h2>Where to go from here?</h2>
 					<ul>
-						<li> <a href="https://www.mapbox.com/guides/" target="_blank">Mapbox Published Guides</a>
-						<li> <a href="https://www.mapbox.com/mapbox-studio/source-quickstart/" target="_blank">Mapbox Studio Source Quickstart</a> (adding data)
-						<li> <a href="https://www.mapbox.com/mapbox-studio/style-quickstart/" target="_blank">Mapbox Studio Style Quickstart</a> (hover data info)
-						<li> <a href="https://www.mapbox.com/tilemill/docs/crashcourse/introduction/" target="_blank">Tile Mill Docs</a>	
-						<li> <a href="https://www.mapbox.com/plans/" target="_blank">How much does Mapbox Cost?</a>
-						<li> <a href="http://colorbrewer2.org/" target="_blank">ColorBrewer</a> (great style guide for mapping, plus colorblind friendly)
+						<li>Commit your site to a Github repo and use <a href="https://pages.github.com/" target="_blank">Github Pages</a> to host your content.</li>
+						<li>Read up on <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>.</li>
+						<li>Experiment and build!</li>
 					</ul>
 				</section>
 			</div>

@@ -63,13 +63,13 @@
 					<h2>What we're going to learn</h2>
 					<ul>
 						<li>HTML/CSS Basics</li>
-						<li><a href="http://getbootstrap.com/">Bootstrap</a></li>
-						<li>a little <a href="http://jekyllrb.com/">Jekyll</a> and <a href="https://pages.github.com/">Github Pages</a></li>
+						<li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></li>
+						<li>a little <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://pages.github.com/" target="_blank">Github Pages</a></li>
 					</ul>
 				</section>
 
 				<section>
-					<h2>One: Structuring Our Workspace</h2>
+					<h2>1: Structuring Our Workspace</h2>
 					<ol>
 						<li>Create a new folder/directory on your desktop called <code class="emphasis">site</code>.</li>
 						<li>Within your site directory create an <code class="emphasis">index.html</code> file.</li>
@@ -84,7 +84,7 @@
 				</section>
 
 				<section>
-					<h2>Two: Structure it in Your Terminal</h2>
+					<h2>2: Structure it in Your Terminal</h2>
 				<pre><code data-trim contenteditable>
 sfrostenso@GCI-SFROSTEN2-M:~|⇒  cd Desktop 
 sfrostenso@GCI-SFROSTEN2-M:~/Desktop|
@@ -106,7 +106,7 @@ sfrostenso@GCI-SFROSTEN2-M:~/Desktop/site|
 				</section>
 
 				<section>
-					<h2>Three: HTML Setup</h2>
+					<h2>3: HTML Setup</h2>
 					<img src="img/html-setup.jpg">
 					<aside class="notes">
 						Because this slide presentation is one big html document, I had some issues including the doctype tag, html and head tags, which is why this portion is a screenshot and not an embed. They'll need to actually type this into their html file.
@@ -117,7 +117,7 @@ sfrostenso@GCI-SFROSTEN2-M:~/Desktop/site|
 					</aside>	
 				</section>
 				<section>
-					<h2>Four: Add some Body HTML</h2>
+					<h2>4: Add some Body HTML</h2>
 <pre><code data-trim contenteditable>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 	      <div class="container">
@@ -155,7 +155,7 @@ sfrostenso@GCI-SFROSTEN2-M:~/Desktop/site|
 				</section>				
 
 				<section>
-					<h2>Five: Launch a webserver</h2>
+					<h2>5: Launch a webserver</h2>
 					<p>Go back to your terminal. From the site directory, launch a simple webserver by typing <code class="emphasis">python -m SimpleHTTPServer</code></p>
 					<pre><code data-trim contenteditable>
 sfrostenso@GCI-SFROSTEN2-M:~/Desktop/site|
@@ -171,7 +171,7 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 				</section>
 
 				<section>
-					<h2>Six: Inspect Your Page</h2>
+					<h2>6: Inspect Your Page</h2>
 					<p>There are two ways to launch your inspector tools (should work for Safari, Chrome, Firefox &amp; IE)</p>
 					<ol>
 					<li>Right click anywhere on the page and select <code class="emphasis">Inspect Element</code></li>
@@ -190,10 +190,10 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 				</section>
 
 				<section>
-					<h2>Seven: Bootstrap</h2>
+					<h2>7: Bootstrap</h2>
 					<img src="img/bootstrap-ex.jpg" />
 					<p>Bootstrap is a popular HTML, CSS and JS framework for developing responsive, mobile first projects.</p>
-					<p>Here are some more ready-made <a href="http://getbootstrap.com/getting-started/#examples">Bootstrap Templates</a>.
+					<p>Here are some more ready-made <a href="http://getbootstrap.com/getting-started/#examples" target="_blank">Bootstrap Templates</a>.
 					<aside class="notes">
 					All of the styles and functionality of our menu is thanks to the Bootstrap framework. You'll see that we used the Starter Template for our website nav.
 					</aside>
@@ -202,8 +202,8 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 				<section>
 					<h2>Bootstrap's Grid</h2>
 					<ul>
-						<li> Bootstrap works as a <a href="http://getbootstrap.com/examples/grid/">12 column grid.</a></li>
-						<li> This means grid columns classes must add up to 12 for a single horizontal block or div. </li>
+						<li> Bootstrap works as a <a href="http://getbootstrap.com/examples/grid/" target="_blank">12 column grid.</a></li>
+						<li> This means grid columns classes must add up to 12 for a single horizontal block (i.e. all divs nested in one parent div must have classes that add up to 12). </li>
 						<li>Bootstrap has four types of classes: xs (phones), sm (tablets), md (desktops), and lg (larger desktops)</li>
 						<aside class="notes">
 						Based on the code in our index.html file, it's not apparent, b/c we're using a special Bootstrap class called "navbar"--but Bootstrap works on a 12 column grid system.
@@ -213,7 +213,7 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 				</section>
 
 				<section>
-					<h2>Eight: Use Bootstrap's Grid</h2>
+					<h2>8: Use Bootstrap's Grid</h2>
 					<pre><code data-trim contenteditable>
 <div class="projects">
 	<div class="col-md-4 project-item">
@@ -234,12 +234,12 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 </div>
 </pre></code>
 					<aside class="notes">
-						Ok, let's use Bootstrap to build one row of our portfolio site. We'll want to put this code under our closing nav tag in our index.html file. What does the col-md-4 class mean? What happens when you resize the page? Can you spot any errors? What do you think is happening?
+						Ok, let's use Bootstrap to build one row of our portfolio site. We'll want to put this code under our closing nav tag in our index.html file.What does the col-md-4 class mean? What happens when you resize the page? Can you spot any errors? What do you think is happening?
 					</aside>
 				</section>
 
 				<section>
-					<h2>Nine: A little CSS</h2>
+					<h2>9: A little CSS</h2>
 					<pre><code data-trim contenteditable>
 .row {
 	margin-right: 0;
@@ -253,40 +253,45 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 						<aside class="notes">
 						The reason we can't see all of our content is because of div positioning that can be fixed with a little of our own custom CSS.
 						<br>
-						What we're doing here is overwriting some undesirable Bootstrap row CSS w/ our own CSS, removing the negative margins and then telling our entire projects div to move down 50px from the top so the navbar is no longer hiding it. So if you refresh your page, you'll see it looks a lot better huh?
+						What we're doing here is overwriting some undesirable default Bootstrap row CSS w/ our own CSS, removing the negative margins and then telling our entire projects div to move down 50px from the top so the navbar is no longer hiding it. So if you refresh your page, you'll that all of our content is now visible as expected.
 					</aside>
 					</section>
 				<section>
-					<h2>Ten: Jekyll</h2>
+					<h2>10: Install <a href="http://jekyllrb.com/" target="_blank">Jekyll</a></h2>
 					<img src="img/jekyll-install.jpg" />
 						<aside class="notes">
 						From here, you could keep adding additional rows in the exact same way as we did the first row, but I'd like to briefly introduce you to Jekyll, as it's a powerful tool for templating website and reducing the amount of code you need to write.
 						<br>
-						Ok, so let's follow the Jekyll installation guide in our terminal. Make sure you navigate to the root directory of your terminal. CD until you don't see any directories listed or close and reopen your terminal.
+						Ok, so let's follow the Jekyll installation guide in our terminal. Make sure you navigate to the root directory of your terminal. CD until you don't see any directories listed or close and reopen your terminal. If you run into problems installing jekyll. Don't stress, just follow along and learn about some of the main concepts.
 						</aside>
 					</section>
 
 				<section>
 					<img src="img/jekyll-default.jpg">
 						<aside class="notes">
-						By clicking the pointed finger icon in the lower left, I can activate my unemployment layer and add my interactivity like we did in Mapbox Studio. I can even create an html legend.
+						So if your installation of jekyll was successful, do you see this when you go to localhost:4000? What happens when you click About? What happens when you resize? A: That's b/c Jekyll already has Foundation (a framework that performs the same functionality as Bootstrap already installed). Now let's check out what files and directories were generated in my-awesome-site. Wow. A lot, right?
 						</aside>
 					</section>
 				
 				<section>
-					<h2>So Why Not Use TileMill?</h2>
-					<ol>
-						<li>First of all, you <strong>can</strong>. I've included a tutorial at the end of the slides in Resources.</li>
-						<li>TileMill makes tiles. Mapbox Studio makes vectors. Vectors won't look fuzzy under high resolutions. Images will.</li>
-						<li>You can't customize your baselayer in TileMill. But you can in Mapbox Studio.</li>
+					<h2>11: Jekyll's Structure</h2>
+					<img src="img/jekyll-directory.jpg" />
+					<aside class="notes">
+						So this is what a basic Jekyll site's directory looks like. In the next slide, we're going to touch on a few of the powerful ways in which you can customize Jekyll's structure with your own content.
+					</aside>
 					</section>
 				
 				<section>
-					<h2>Method II: Mapping using Mapbox.js</h2>
+					<h2>12: Site, Config, Includes &amp; Layouts</h2>
 					<ol>
-						<li>Navigate to <a href="https://github.com/sfrostenson/talks/tree/2015-03-nicar-mapbox/mapboxjs-map">https://github.com/sfrostenson/talks/tree/2015-03-nicar-mapbox/mapboxjs-map</a></li>
-						<li>Create a new folder separate from your Mapbox Studio work and download both <strong>index.html</strong> and <strong>unemployment.geojson</strong> (it's slightly different than what's on your computer.)
+						<li><code class="emphasis">_site</code> is where your website will be generated by Jekyll as you make changes to other files.</li>
+						<li><code class="emphasis">_config</code> stores meta configuration data about your website &amp; data specific to you.</li>
+						<li><code class="emphasis">_includes</code> contain reusable code chunks that can be reused throughout your site.</li>
+						<li><code class="emphasis">_layouts</code> contain the html structure for each section of your site.</li>
 					</ol>
+					<aside class="notes">
+						Don't worry about making changes to your site directory files, as Jekyll will compile changes here for you automatically--it's just important to know this is where Jekyll hosts your site's content. As for the config, includes and layouts--we're going to make a few quick changes to those in the next couple of slides so you can see what building with Jekyll is like. Includes are particularly powerful, as they reduce the amount of code you have to write.
+					</aside>
 				</section>
 
 				<section>
